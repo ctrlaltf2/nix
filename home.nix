@@ -13,6 +13,7 @@
     dconf
     git
     htop
+    neofetch
     p7zip
   ];
 
