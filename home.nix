@@ -1,5 +1,11 @@
 { config, pkgs, ... }:
 
+/*
+let
+  buildTimeResponse = (builtins.fetchurl "https://currentmillis.com/time/seconds-since-unix-epoch.php");
+  buildHash = (builtins.hashFile "sha256" buildTimeResponse); # hash to prevent vimscript injection
+in
+*/
 {
   home.username = "user";
   home.homeDirectory = "/home/user";
@@ -10,11 +16,13 @@
   home.stateVersion = "23.11"; # Please read the comment before changing.
 
   home.packages = with pkgs; [
+    black # overlay::python
     dconf
     git
     htop
     neofetch
     p7zip
+    ripgrep
   ];
 
   programs.bat.enable = true;
@@ -41,7 +49,49 @@
 
   programs.neovim = {
     enable = true;
-    # TODO: all of the rest
+    coc = {
+	enable = true;
+	/* Why does this have to run every time?
+	pluginConfig = builtins.replaceStrings ["{buildHash}"] [buildHash] ''
+		autocmd User CocNvimInit execute ['CocInstall -sync coc-cmake coc-css coc-docker coc-git coc-highlight coc-html coc-json coc-python coc-pyright coc-toml coc-yaml', 'autocmd!']
+	'';
+	*/
+	settings = {
+		coc.preferences.formatOnType = true;
+		coc.preferences.formatOnSaveFiletypes = [
+			"python" # overlay::python
+			"rust" # overlay::rust
+		];
+		codeLens.enable = true;
+		colors.enable = true;
+		python.formatting.provider = "black"; # overlay::python
+		python.linting.flake8Enabled = true; # overlay::python
+	};
+    };
+    # TODO: Move this to a file
+    extraConfig = ''
+        if has('termguicolors')
+          set termguicolors
+        endif
+
+        " For dark version.
+        set background=dark
+
+        " Set contrast.
+        " This configuration option should be placed before `colorscheme everforest`.
+        " Available values: 'hard', 'medium'(default), 'soft'
+        let g:everforest_background = 'medium'
+
+	" Disabled atm because nix-managed neovim gets mad about file permissions or something idk
+	" let g:everforest_better_performance = 1
+
+        colorscheme everforest
+    '';
+    plugins = with pkgs.vimPlugins; [
+    	everforest
+    ];
+    withNodeJs = true;
+    withPython3 = true;
   };
 
   programs.git = {
