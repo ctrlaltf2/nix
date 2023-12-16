@@ -20,9 +20,11 @@ in
     dconf
     git
     htop
+    llvmPackages.libcxxClang
     neofetch
     p7zip
     ripgrep
+    tree-sitter
   ];
 
   programs.bat.enable = true;
@@ -51,11 +53,6 @@ in
     enable = true;
     coc = {
 	enable = true;
-	/* Why does this have to run every time?
-	pluginConfig = builtins.replaceStrings ["{buildHash}"] [buildHash] ''
-		autocmd User CocNvimInit execute ['CocInstall -sync coc-cmake coc-css coc-docker coc-git coc-highlight coc-html coc-json coc-python coc-pyright coc-toml coc-yaml', 'autocmd!']
-	'';
-	*/
 	settings = {
 		coc.preferences.formatOnType = true;
 		coc.preferences.formatOnSaveFiletypes = [
@@ -70,6 +67,7 @@ in
     };
     # TODO: Move this to a file
     extraConfig = ''
+    	" Everforest
         if has('termguicolors')
           set termguicolors
         endif
@@ -88,7 +86,58 @@ in
         colorscheme everforest
     '';
     plugins = with pkgs.vimPlugins; [
+        # General plugins
+    	barbar-nvim
+    	# boole # TODO: Map Ctrl-X, Ctrl-A keybinds to :Boole
+	# deadcolumn doesn't have one yet
     	everforest
+	# hlargs doesn't have one yet
+	# leap # TODO: Learn/configure
+	nvim-treesitter
+	trim-nvim
+	# no statusline.lua
+	vim-illuminate
+	vim-polyglot
+	vim-sleuth
+	nvim-web-devicons
+
+	# Language support
+	coc-clangd # overlay::c++
+	coc-cmake # overlay::c++
+	coc-css # overlay::css, overlay::webdev
+	coc-highlight
+	coc-html # overlay::webdev
+	coc-json
+	coc-pyright # overlay::pyright
+	coc-python # overlay::python
+	coc-rust-analyzer # overlay::rust
+	coc-sh
+	coc-toml # overlay::rust
+	coc-yaml
+	nvim-treesitter-parsers.bash
+	nvim-treesitter-parsers.c
+	nvim-treesitter-parsers.clojure
+	nvim-treesitter-parsers.cmake
+	nvim-treesitter-parsers.css
+	nvim-treesitter-parsers.cpp
+	nvim-treesitter-parsers.cuda
+	nvim-treesitter-parsers.dockerfile
+	nvim-treesitter-parsers.fish
+	nvim-treesitter-parsers.gitattributes
+	nvim-treesitter-parsers.gitignore
+	nvim-treesitter-parsers.javascript
+	nvim-treesitter-parsers.json
+	nvim-treesitter-parsers.markdown
+	nvim-treesitter-parsers.make # overlay::c++
+	nvim-treesitter-parsers.nix
+	nvim-treesitter-parsers.python # overlay::python
+	nvim-treesitter-parsers.regex
+	nvim-treesitter-parsers.rust # overlay::rust
+	nvim-treesitter-parsers.scss # overlay::css
+	nvim-treesitter-parsers.ssh_config
+	nvim-treesitter-parsers.vim
+	nvim-treesitter-parsers.xml
+	nvim-treesitter-parsers.yaml
     ];
     withNodeJs = true;
     withPython3 = true;
