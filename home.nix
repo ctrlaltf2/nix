@@ -164,4 +164,9 @@
 
   # Let Home Manager install and manage itself.
   programs.home-manager.enable = true;
+
+  # I'm totally not going to forget that my dconf is now partially managed and wonder why settings keep reverting...
+  imports = [
+    ./dconf.nix
+  ];
 }
