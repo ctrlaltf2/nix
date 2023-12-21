@@ -17,6 +17,7 @@
     llvmPackages.libcxxClang
     neofetch
     p7zip
+    parallel
     ripgrep
     tree-sitter
   ];
