@@ -1,14 +1,8 @@
 { config, pkgs, ... }:
 
-/*
-let
-  buildTimeResponse = (builtins.fetchurl "https://currentmillis.com/time/seconds-since-unix-epoch.php");
-  buildHash = (builtins.hashFile "sha256" buildTimeResponse); # hash to prevent vimscript injection
-in
-*/
 {
-  home.username = "user";
-  home.homeDirectory = "/home/user";
+  home.username = "caleb";
+  home.homeDirectory = "/home/caleb";
 
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
@@ -52,45 +46,45 @@ in
   programs.neovim = {
     enable = true;
     coc = {
-	enable = true;
-	settings = {
-		coc.preferences.formatOnType = true;
-		coc.preferences.formatOnSaveFiletypes = [
-			"python" # overlay::python
-			"rust" # overlay::rust
-		];
-		codeLens.enable = true;
-		colors.enable = true;
-		python.formatting.provider = "black"; # overlay::python
-		python.linting.flake8Enabled = true; # overlay::python
-	};
+      enable = true;
+      settings = {
+	coc.preferences.formatOnType = true;
+	coc.preferences.formatOnSaveFiletypes = [
+	  "python" # overlay::python
+	  "rust" # overlay::rust
+	];
+	codeLens.enable = true;
+	colors.enable = true;
+	python.formatting.provider = "black"; # overlay::python
+	python.linting.flake8Enabled = true; # overlay::python
+      };
     };
     # TODO: Move this to a file
     extraConfig = ''
-    	" Everforest
-        if has('termguicolors')
-          set termguicolors
-        endif
+	" Everforest
+	if has('termguicolors')
+	  set termguicolors
+	endif
 
-        " For dark version.
-        set background=dark
+	" For dark version.
+	set background=dark
 
-        " Set contrast.
-        " This configuration option should be placed before `colorscheme everforest`.
-        " Available values: 'hard', 'medium'(default), 'soft'
-        let g:everforest_background = 'medium'
+	" Set contrast.
+	" This configuration option should be placed before `colorscheme everforest`.
+	" Available values: 'hard', 'medium'(default), 'soft'
+	let g:everforest_background = 'medium'
 
 	" Disabled atm because nix-managed neovim gets mad about file permissions or something idk
 	" let g:everforest_better_performance = 1
 
-        colorscheme everforest
+	colorscheme everforest
     '';
     plugins = with pkgs.vimPlugins; [
-        # General plugins
-    	barbar-nvim
-    	# boole # TODO: Map Ctrl-X, Ctrl-A keybinds to :Boole
+	# General plugins
+	barbar-nvim
+	# boole # TODO: Map Ctrl-X, Ctrl-A keybinds to :Boole
 	# deadcolumn doesn't have one yet
-    	everforest
+	everforest
 	# hlargs doesn't have one yet
 	# leap # TODO: Learn/configure
 	nvim-treesitter
@@ -138,19 +132,19 @@ in
 	nvim-treesitter-parsers.vim
 	nvim-treesitter-parsers.xml
 	nvim-treesitter-parsers.yaml
-    ];
-    withNodeJs = true;
-    withPython3 = true;
-  };
-
-  programs.git = {
-    enable = true;
-    userName = "ctrlaltf2";
-    userEmail = "github@troyer.dev";
-    lfs = {
-      enable = true;
+      ];
+      withNodeJs = true;
+      withPython3 = true;
     };
-  };
+
+    programs.git = {
+      enable = true;
+      userName = "ctrlaltf2";
+      userEmail = "github@troyer.dev";
+      lfs = {
+	enable = true;
+      };
+    };
 
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
