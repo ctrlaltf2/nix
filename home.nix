@@ -1,8 +1,8 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "user";
-  home.homeDirectory = "/home/user";
+  home.username = "caleb";
+  home.homeDirectory = "/home/caleb";
 
   # You should not change this value, even if you update Home Manager. If you do
   # want to update the value, then make sure to first check the Home Manager
@@ -37,6 +37,9 @@
     enable = true;
     enableFishIntegration = true;
     enableBashIntegration = true;
+    settings = {
+      OTHER_WRITABLE = "30;46";
+    };
   };
 
   programs.fish.enable = true;
