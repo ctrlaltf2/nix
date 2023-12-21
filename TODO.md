@@ -6,8 +6,13 @@
    - [ ] Sponsored/suggested stuff
 - [ ] Dotfiles autolinking
 ### NixOS
+General:
  - [ ] Mouse tap to click
  - [ ] Caps to esc
+
+Hardware:
+ - [ ] Laptop: https://github.com/NixOS/nixos-hardware/blob/master/framework/13-inch/common/amd.nix
+ - [ ] Workstation: TBD, AMD CPU (like w/ above), but NVIDIA GPU drivers need to be there in the ISO, because no integrated graphics
 
 #### Graphical
  - [ ] Alacritty
