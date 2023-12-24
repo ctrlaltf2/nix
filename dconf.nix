@@ -16,6 +16,16 @@ with lib.hm.gvariant;
       font-hinting = "full";
     };
 
+    "org/gnome/desktop/peripherals/mouse" = {
+      natural-scroll = false;
+    };
+
+    "org/gnome/desktop/peripherals/touchpad" = {
+      disable-while-typing = false;
+      tap-to-click = true;
+      two-finger-scrolling-enabled = true;
+    };
+
     "org/gnome/desktop/privacy" = {
       report-technical-problems = false;
     };
@@ -25,6 +35,7 @@ with lib.hm.gvariant;
       switch-to-workspace-2 = [ "<Super>2" ];
       switch-to-workspace-3 = [ "<Super>3" ];
       switch-to-workspace-4 = [ "<Super>4" ];
+      toggle-fullscreen = [ "<Super>F11" ];
     };
 
     "org/gnome/desktop/wm/preferences" = {
@@ -34,6 +45,7 @@ with lib.hm.gvariant;
 
     "org/gnome/mutter" = {
       edge-tiling = true;
+      attach-modal-dialogs = false;
     };
 
     "org/gnome/nautilus/compression" = {
@@ -58,6 +70,13 @@ with lib.hm.gvariant;
     "org/gnome/shell/extensions/pop-shell" = {
       tile-by-default = false;
       tile-enter = [ "<Shift><Super>Return" ];
+    };
+
+    "org/gnome/shell/keybindings" = {
+      switch-to-application-1 = [];
+      switch-to-application-2 = [];
+      switch-to-application-3 = [];
+      switch-to-application-4 = [];
     };
 
     "org/gnome/system/location" = {
