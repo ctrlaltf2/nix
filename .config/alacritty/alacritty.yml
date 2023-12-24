@@ -38,3 +38,4 @@ shell:
 key_bindings:
   - { key: V,        mods: Command,       action: Paste                        }
   - { key: C,        mods: Command,       action: Copy                         }
+  - { key: F11,                           action: ToggleFullscreen             }
