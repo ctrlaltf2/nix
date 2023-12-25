@@ -16,6 +16,7 @@
     htop
     llvmPackages.libcxxClang
     neofetch
+    ncdu
     p7zip
     parallel
     ripgrep
