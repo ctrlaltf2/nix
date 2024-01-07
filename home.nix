@@ -19,6 +19,8 @@
     ncdu
     p7zip
     parallel
+    python311
+    python311Packages.ipython
     ripgrep
     rustup # overlay::rust
     tree-sitter
@@ -49,6 +51,7 @@
   programs.fish.enable = true;
   programs.fish.shellAbbrs = {
     ls = "lsd";
+    ipy = "ipython";
   };
 
   programs.neovim = {
