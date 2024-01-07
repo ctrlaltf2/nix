@@ -23,6 +23,7 @@
     python311Packages.ipython
     ripgrep
     rustup # overlay::rust
+    # sshfs
     tree-sitter
     unixtools.xxd
     wol
