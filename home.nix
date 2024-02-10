@@ -14,7 +14,7 @@
     dconf
     git
     htop
-    llvmPackages.libcxxClang
+    # llvmPackages.libcxxClang
     neofetch
     ncdu
     p7zip
@@ -122,6 +122,7 @@
 	coc-toml # overlay::rust
 	coc-yaml
 	nvim-treesitter-parsers.bash
+	nvim-treesitter-parsers.beancount
 	nvim-treesitter-parsers.c
 	nvim-treesitter-parsers.clojure
 	nvim-treesitter-parsers.cmake
