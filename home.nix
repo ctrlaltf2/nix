@@ -71,6 +71,7 @@
 	python.linting.flake8Enabled = true; # overlay::python
       };
     };
+    defaultEditor = true;
     # TODO: Move this to a file
     extraConfig = ''
 	" Everforest
@@ -90,6 +91,8 @@
 	" let g:everforest_better_performance = 1
 
 	colorscheme everforest
+
+	set mouse=
     '';
     plugins = with pkgs.vimPlugins; [
 	# General plugins
