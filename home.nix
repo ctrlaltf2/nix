@@ -167,7 +167,7 @@
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
-    ".config/alacritty/alacritty.yml".source = .config/alacritty/alacritty.yml;
+    ".config/alacritty/alacritty.toml".source = .config/alacritty/alacritty.toml;
     ".config/fontconfig/fonts.conf".source = .config/fontconfig/fonts.conf;
     # ".gradle/gradle.properties".text = ''
     #   org.gradle.console=verbose
