@@ -1,0 +1,50 @@
+[colors.bright]
+black = "0x475258"
+blue = "0x7fbbb3"
+cyan = "0x83c092"
+green = "0xa7c080"
+magenta = "0xd699b6"
+red = "0xe67e80"
+white = "0xd3c6aa"
+yellow = "0xdbbc7f"
+
+[colors.normal]
+black = "0x475258"
+blue = "0x7fbbb3"
+cyan = "0x83c092"
+green = "0xa7c080"
+magenta = "0xd699b6"
+red = "0xe67e80"
+white = "0xd3c6aa"
+yellow = "0xdbbc7f"
+
+[colors.primary]
+background = "0x2d353b"
+foreground = "0xd3c6aa"
+
+[font]
+builtin_box_drawing = true
+
+[[keyboard.bindings]]
+action = "Paste"
+key = "V"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "Copy"
+key = "C"
+mods = "Command"
+
+[[keyboard.bindings]]
+action = "ToggleFullscreen"
+key = "F11"
+
+[shell]
+program = "fish"
+
+[window]
+decorations = "Full"
+
+[window.padding]
+x = 0
+y = 0
