@@ -157,7 +157,7 @@
     programs.git = {
       enable = true;
       userName = "ctrlaltf2";
-      userEmail = "github@troyer.dev";
+      userEmail = "23644849+ctrlaltf2@users.noreply.github.com";
       lfs = {
 	enable = true;
       };
